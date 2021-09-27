@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    {% if login %}
+        <br>
+        <div class="form">
+            <form action="/rawitems" method="POST">
+                <input type="text" name="content" id="content" autofocus="autofocus">
+                <input type="submit" value="Add Item">
+            </form>
+        </div>
+        <br>
+        <table>
+            <tr>
+                <th>Items</th>
+                <th>Action</th>
+            </tr>
+            {% for item in items %}
+                <tr>
+                    <td> {{ item [1] }} </td>
+                    <td> <a href="/delete/{{ item [0] }}">Delete</a> </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        Please login to see this page.
+    {% endif %}
+{% endblock %}

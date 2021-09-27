@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    {% if login %}
+        <br>
+        <div class="form">
+            <form action="/words" method="POST">
+                <input type="text" name="word" id="word" autofocus="autofocus">
+                <input type="text" name="story" id="story">
+                <input type="submit" value="Add Item">
+            </form>
+        </div>
+        <br>
+        <table>
+            <tr>
+                <th>Word</th>
+                <th>Story</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+            {% for item in items %}
+                <tr>
+                    <td> {{ item[1] }} </td>
+                    <td> {{ item[2] }} </td>
+                    <td> {{ item[3] }} </td>
+                    <td><a href="/delete/{{ item [0] }}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        Please login to see this page.
+    {% endif %}
+{% endblock %}

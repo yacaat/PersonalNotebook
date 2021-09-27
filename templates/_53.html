@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    {#    <audio id="audio" src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"></audio>#}
+
+    {#    <input id="53button" type="button" value="PLAY" onclick="play()"  class="btn btn-danger btn-lg btn-block" >#}
+    <div class="buttondiv">
+        <input id="button53" type="button" value="PLAY" onclick="play()"
+               class="btn btn-danger btn-lg btn-block button53">
+    <input id="button53" type="button" value="STOP" onclick="window.location.reload();"
+               class="btn btn-danger btn-lg btn-block button53">
+    </div>
+    <audio id="audio" src="https://www.soundjay.com/buttons/sounds/beep-01a.mp3"></audio>
+    <audio id="audio2" src="https://www.soundjay.com/buttons/sounds/beep-02.mp3"></audio>
+    <audio id="audio3" src="https://www.soundjay.com/buttons/sounds/beep-03.mp3"></audio>
+
+    <script>
+        function play() {
+            var audio = document.getElementById("audio");
+            setTimeout(function () {
+                audio3.play();
+                document.getElementById("button53").value = i + 1;
+            }, 1000);
+            setTimeout(function () {
+                audio3.play();
+                document.getElementById("button53").value = i + 1;
+            }, 2000);
+
+            for (let i = 0; i < 10; i++) {
+                setTimeout(function () {
+                    audio.play();
+                    document.getElementById("button53").value = i + 1;
+                }, 3000 + i * 8000);
+
+                setTimeout(function () {
+                    audio2.play();
+                    document.getElementById("button53").value = (i + 1).toString() + "+";
+                }, 8000 + i * 8000);
+            }
+            setTimeout(function () {
+                audio3.play();
+                document.getElementById("button53").value = i + 1;
+            }, 81000);
+        }
+    </script>
+{% endblock %}
