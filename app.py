@@ -5,7 +5,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-app.secret_key = b'xmZC11SnNhksPaVM'
+app.secret_key = b'XXXXXXXXXXXXXXXX'
 
 @app.route('/')
 def index():
